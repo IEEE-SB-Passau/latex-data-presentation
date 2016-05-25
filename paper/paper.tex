@@ -1,7 +1,8 @@
-\documentclass[conference,a4paper]{IEEEtran}
+\documentclass[conference,a4paper,english]{IEEEtran}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{babel}
 \usepackage{tgpagella}
 \usepackage[scale=0.9]{tgcursor}
 \usepackage{graphicx}
@@ -18,7 +19,7 @@
   alldates=iso8601,%
   %backref,%
   %backrefstyle=none,%
-  style=alphabetic,%
+  style=numeric,%
   sorting=nyt,%
 ]{biblatex}
 \ExecuteBibliographyOptions{doi=false,url=false}
@@ -41,6 +42,7 @@
     \href{http://dx.doi.org/\thefield{doi}}{#1}%
   }%
 }
+\DeclareFieldFormat*{title}{\usebibmacro{string+doiurlisbn}{\mkbibquote{#1}}}
 
 \bibliography{../bibliography.bib}
 \usepackage[group-digits=integer,%
@@ -92,6 +94,8 @@
 \begin{IEEEkeywords}
   TODO
 \end{IEEEkeywords}
+
+\input{chapters/introduction}
 
 
 % trigger a \newpage just before the given reference
