@@ -1,0 +1,26 @@
+\documentclass[a5paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\begin{document}
+
+<<echo=false,results=hide>>=
+# download the ZIP archive and read from the CSV file that's contained
+temp <- tempfile()
+download.file("http://www.ecb.int/stats/eurofxref/eurofxref-hist.zip", temp)
+data <- read.table(unz(temp, "eurofxref-hist.csv"),sep=",",header=TRUE)
+unlink(temp)
+@
+
+Der Datensatz hat \Sexpr{nrow(data)} Wechselkurse, der neueste Kurs
+(\Sexpr{data$Date[1]}) lautet \Sexpr{data$USD[1]}
+
+\begin{figure}
+\centering
+<<fig=true,echo=false,width=10,height=6>>=
+# do the plotting
+plot(data$USD,t="l", sub=paste(nrow(data)," datasets from
+",data$Date[nrow(data)]," until
+",data$Date[1]),asp=,xlim=c(0,4500),ylim=c(0.75,1.75))
+@
+\end{figure}
+
+\end{document}
