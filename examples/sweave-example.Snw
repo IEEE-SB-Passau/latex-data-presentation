@@ -5,7 +5,8 @@
 <<echo=false,results=hide>>=
 # download the ZIP archive and read from the CSV file that's contained
 temp <- tempfile()
-download.file("http://www.ecb.int/stats/eurofxref/eurofxref-hist.zip", temp)
+url = "http://www.ecb.int/stats/eurofxref/eurofxref-hist.zip"
+download.file(url, temp)
 data <- read.table(unz(temp, "eurofxref-hist.csv"),sep=",",header=TRUE)
 unlink(temp)
 @
