@@ -69,9 +69,26 @@
 }
 \usepackage{paralist}
 \usepackage{microtype}
-\usepackage[disable]{todonotes}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{halfgray}{gray}{0.55}
+\definecolor{webgreen}{rgb}{0,0.5,0}
+\definecolor{webbrown}{rgb}{.6,0,0}
+\definecolor{thesisblue}{cmyk}{1.00,0.50,0.10,0.01}
 \usepackage{hyperref}
 \hypersetup{%
+  colorlinks=true,%
+  breaklinks=true,%
+  linktocpage=true,%
+  pdfstartview=FitV,%
+  pdfpagemode=UseNone,%
+  pdfpagemode=UseOutlines,%
+  plainpages=false,%
+  bookmarksnumbered,%
+  hypertexnames=true,%
+  pdfhighlight=/0,%
+  urlcolor=webbrown,%
+  linkcolor=thesisblue,%
+  citecolor=webgreen,%
   pdftitle={A Beginner's Guide to Scientific Data Presentation using LaTeX},%
   pdfauthor={Stephan Lukasczyk},%
   pdfkeywords={siunitx, booktabs, data, presentation, latex, r, sweave,
