@@ -1,5 +1,74 @@
 \section{Tables}
 
+When it comes to tables, opinions differ very much.  Everybody has an individual
+taste of how a table should look like.  Typesetting tables with \hologo{LaTeX}
+is no easy work; on the one hand structuring the source code itself is complex,
+on the other hand there is a wide variety of packages on CTAN for getting the
+job done.  An overview over packages and possibilities is given by Herbert Voß'
+German book \enquote{Tabellen mit \LaTeX}~\cite{Voss2010}.
+
 \subsection{General Rules}
+
+Because of the individual preferences when designing tables, we stick to some
+general rules that should be respected in any case here.  The first, and most
+important rule is to \emph{never} use vertical lines.  They do not help the
+reader and, in complex tables, only add an additional level of complexity.  The
+same holds for double rules (and of course for every higher number of
+rules)~\cite{Fear2016}.
+
+When using \LaTeX{} it is generally a good idea to load the \toolname{booktabs}
+package~\cite{Fear2016} and work through its documentation before starting.
+
+Consider Table~\ref{tab:bad-formated} and Table~\ref{tab:well-formated}; the
+former violates the rules, the latter follows them.  We think, it is obvious to
+the reader, that Table~\ref{tab:well-formated} is easier to read, and more
+clearly structured.
+
+\begin{table}
+\label{tab:bad-formated}
+\caption{A table with bad formatting~(after~\cite{Voss2010})}
+\begin{tabular}{|@{}>{\raggedright}%
+  p{3.5cm}@{\kern-30pt}>{\footnotesize}r|*{4}{>{\footnotesize}l|}@{}}\hline\hline
+  \textit{Alternative 1} & Investitions- & Jahr &&&\\[-2pt]
+                         & zeitpunkt     & 2006 & 2007 & 2008 & 2009
+  \\\hline\hline
+  Einführungszahlungen & 0 & 0 & 0 & 0 & 0 \\\hline
+  Lfd. Personalzahlungen & 0 &  7.187 &  7.187 &  7.187 &  7.187 \\\hline
+  Lfd. Zahlungen für \newline
+  Wartung/Systempflege   & 0 & 13.572 & 13.572 & 13.572 & 13.572 \\\hline\hline
+  Gesamtzahlungen für die Investition
+                         & 0 & 20.759 & 20.759 & 20.759 & 20.759 \\\hline\hline
+  %
+  \multicolumn{6}{c}{\rule{0pt}{3ex}\small(Alle Angaben in \euro)}
+\end{tabular}
+\end{table}
+
+\begin{table}
+\label{tab:well-formated}
+\caption{A well-formated table~(taken from~\cite{Voss2010})}
+\begin{tabular}{@{}>{\raggedright}%
+  p{3.5cm}@{\kern-30pt}*{5}{>{\footnotesize}r}@{}}\toprule
+  \textit{Alternative 1} & Investitions- & Jahr\\[-2pt]
+                         & zeitpunkt     & 2006 & 2007 & 2008 & 2009 \\
+  \cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(l){6-6}
+  Einführungszahlungen & 0 & 0 & 0 & 0 & 0 \\
+  Lfd. Personalzahlungen & 0 &  7.187 &  7.187 &  7.187 &  7.187 \\
+  Lfd. Zahlungen für \newline
+  Wartung/Systempflege   & 0 & 13.572 & 13.572 & 13.572 & 13.572 \\
+     \cmidrule[0.8pt](r){1-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+     \cmidrule(lr){5-5}\cmidrule(l){6-6}
+  Gesamtzahlungen für die Investition
+                         & 0 & 20.759 & 20.759 & 20.759 & 20.759 \\\bottomrule
+  %
+  \multicolumn{6}{c}{\rule{0pt}{3ex}\small(Alle Angaben in \euro)}
+\end{tabular}
+\end{table}
+
+Another important rule is to put the caption of the table above it and not
+below—as it is done for figures.  The reason is that a reader will first look at
+a table's caption to fathom out the table data, whereas she will first
+comprehend a figure as a whole and then look at its
+caption~\cite{Schlepzig2010,Schlosser2011}.
+
 
 \subsection{Tuning}
