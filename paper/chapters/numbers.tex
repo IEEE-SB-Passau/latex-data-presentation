@@ -7,19 +7,20 @@ $648312786157.546863$ or \num{648312786157.546863}.  With the former it is hard
 to determine the dimension of this number, while it is easy with the latter.
 
 A general advice is to group numbers with four or more digits; whether a small
-space~(\verb!\,! in \LaTeX), a comma or a dot is used, depends on the language,
-country and personal taste; in Germany, the comma is the decimal mark, while in
-English it is the dot.  The German norms DIN~1333 and DIN~5008 state that only a
-small space should be used for grouping; they are only allowed money amounts.
-In English speaking countries one can use a small space or a comma for grouping.
+space~(\mintinline{latex}{\,} in \LaTeX), a comma or a dot is used, depends on
+the language, country and personal taste; in Germany, the comma is the decimal
+mark, while in English it is the dot.  The German norms DIN~1333 and DIN~5008
+state that only a small space should be used for grouping; they are only allowed
+money amounts.  In English speaking countries one can use a small space or a
+comma for grouping.
 
-\subsection{Units and Significant Digits}
+\subsection{Units}
 
 When presenting results, the numbers should be consistent in terms of units and
-their significance; most of the following information is taken
-from~\cite{BeyerLoeweWendler2016}.  The first and most general recommendation is
-to use SI units; an exception of this rule are time intervals, where the hours
-or even days are preferable over seconds.
+their significance; most of the information in this and the following section is
+taken from Beyer, Löwe, and Wendler~\cite{BeyerLoeweWendler2016}.  The first and
+most general recommendation is to use SI units; an exception of this rule are
+time intervals, where the hours or even days are preferable over seconds.
 
 In Computer Science, we often measure in bytes.  The prefixes \emph{kilo} (k),
 \emph{mega} (M), \emph{giga} (G) etc.\ are SI prefixes, that means, they always
@@ -29,6 +30,8 @@ sometimes want to use the factor \num{1024} instead; if we do so, the prefixes
 Be aware of the different basis, which will lead to an error in precision if
 used wrong: with the prefix mega it would be \SI{4.9}{\percent} and
 \SI{7.4}{\percent} with giga—a significant error.
+
+\subsection{Significant Digits}
 
 \subsection{The Package \toolname{siunitx}}
 
@@ -66,7 +69,8 @@ following way:
     decimal dot
   \item this is only done if the number has at least four digits.
   \item in a \mintinline{latex}{\numlist}, the last number will be separated
-    with \enquote{, and }, e.g. \numlist{5;10;42}.
+    with \enquote{, and }, e.g. \numlist{5;10;42}
+    (\mintinline{latex}{\numlist{5;10;42}}).
   \item if we omit the zero before a decimal dot, it will not be added
     automatically~(e.g. \num{.0815} in contrast to
     \num[add-integer-zero=true]{.0815})

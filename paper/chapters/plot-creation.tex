@@ -29,9 +29,9 @@ Listing~\ref{lst:sweave-example}.  By convention, the filename suffix is not
 \texttt{*.tex} but \texttt{*.Snw}; this is important, because the \texttt{*.tex}
 file will be create automatically.  A syntax highlighting mode is available for
 the editor VIM\@.  After writing the file, one needs to start \toolname{R},
-e.g., a \texttt{R} interactive shell.  With the command
-\texttt{Sweave("filename.Snw")} the \toolname{R} code will be processed and a
-\texttt{*.tex} file will be created, which can then be processed by, e.g.,
+e.g., a \toolname{R} interactive shell.  With the command
+\mintinline{R}{Sweave("filename.Snw")} the \toolname{R} code will be processed
+and a \texttt{*.tex} file will be created, which can then be processed by, e.g.,
 \hologo{pdfLaTeX}.
 
 The example in Listing~\ref{lst:sweave-example} loads the exchange rates between
