@@ -13,11 +13,6 @@ English it is the dot.  The German norms DIN~1333 and DIN~5008 state that only a
 small space should be used for grouping; they are only allowed money amounts.
 In English speaking countries one can use a small space or a comma for grouping.
 
-In order to get the number formatting right, a number of packages evolved; most
-known is the \toolname{siunitx} package by Joseph Wright~\cite{Wright2016}.  It
-was designed for formatting physical quantities and therefore as a much richer
-functionality than we need.
-
 \subsection{Units and Significant Digits}
 
 When presenting results, the numbers should be consistent in terms of units and
@@ -34,3 +29,57 @@ sometimes want to use the factor \num{1024} instead; if we do so, the prefixes
 Be aware of the different basis, which will lead to an error in precision if
 used wrong: with the prefix mega it would be \SI{4.9}{\percent} and
 \SI{7.4}{\percent} with giga—a significant error.
+
+\subsection{The Package \toolname{siunitx}}
+
+In order to get the number formatting right, a number of packages evolved; most
+known is the \toolname{siunitx} package by Joseph Wright~\cite{Wright2016}.  It
+was designed for formatting physical quantities and therefore as a much richer
+functionality than we need.
+
+When using the command in Listing~\ref{lst:siunitx-options} to load the package,
+all things mentioned above are set correctly.
+
+\begin{listing}[H]
+\begin{minted}{latex}
+\usepackage[group-digits=integer,%
+  group-minimum-digits=4,%
+  list-final-separator={, and },%
+  add-integer-zero=false,%
+  free-standing-units,%
+  unit-optional-argument,%
+  binary-units,%
+  detect-weight=true,%
+  detect-inline-weight=math,%
+]{siunitx}
+\end{minted}
+\caption{Suggested options when loading \toolname{siunitx}}
+\label{lst:siunitx-options}
+\end{listing}
+
+With these settings, all numbers enclosed in all \toolname{siunitx} commands
+like \mintinline{latex}{\num{}}, \mintinline{latex}{\numlist{}},
+\mintinline{latex}{\SI{}{}} will be formatted the
+following way:
+\begin{itemize}
+  \item only the integer numbers will be grouped, that means, the part left of a
+    decimal dot
+  \item this is only done if the number has at least four digits.
+  \item in a \mintinline{latex}{\numlist}, the last number will be separated
+    with \enquote{, and }, e.g. \numlist{5;10;42}.
+  \item if we omit the zero before a decimal dot, it will not be added
+    automatically~(e.g. \num{.0815} in contrast to
+    \num[add-integer-zero=true]{.0815})
+  \item the unit macros like \mintinline{latex}{\second} exist also outside of
+    \mintinline{latex}{\si} and \mintinline{latex}{\SI}
+  \item these macros have an optional argument, so
+    \mintinline{latex}{\SI{10}{\second}} and \mintinline{latex}{\second[10]}
+    both produce the output \second[10].
+  \item the prefixes \emph{kibi}, \emph{mibi} and so on are available, together
+    with \mintinline{latex}{\bit} and \mintinline{latex}{\byte}
+  \item \toolname{siunitx} will detect the font weight from the context
+\end{itemize}
+
+For a detailed explanation of the options and all other available options of the
+\toolname{siunitx} package, we refer the reader to the package
+documentation~\cite{Wright2016}.
