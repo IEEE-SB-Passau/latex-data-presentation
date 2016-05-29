@@ -1,5 +1,5 @@
 # Choose lualatex as the default builder for pdfs, don't stop for errors, use synctex
-$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
+$pdflatex = 'lualatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
 $pdf_mode = 1;
 # .bbl files assumed to be regeneratable, safe as long as the .bib file is available
 $bibtex_use = 2;
