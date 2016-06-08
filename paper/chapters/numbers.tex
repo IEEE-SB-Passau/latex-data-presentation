@@ -33,6 +33,26 @@ used wrong: with the prefix mega it would be \SI{4.9}{\percent} and
 
 \subsection{Significant Digits}
 
+The presentation of numbers needs to follow another rule.  When measuring for
+example the run time of a program, it is impossible to get an exact result; in
+contrast the number of tasks in the benchmark set or the number of lines of code
+are exact numbers.
+
+For inexact numbers and measures, one needs to define the precision of a
+measurement and therefore show all results with a constant number of
+\emph{significant digits}.  The German norm DIN~1333 defines the significant
+digits as the digits beginning with the first non-zero digit until the digit
+that gets rounded.  Notice that leading zeros are not counted as significant
+digits, whereas trailing zeros do count.  Consider the numbers
+\SI{20}{\kilo\meter} and \SI{20000}{\meter}; the former has two significant
+digits, while the latter has five.  To get the same number of significant
+digits, the former has to be written as \SI{20.000}{\kilo\meter}.  Writing the
+number like this, it would imply that the measurement result was between
+\SIlist{19999.5;20000.5}{\meter}.
+
+In order to not confuse the reader, a clear statement of the number of
+significant digits that is used in each measurement needs to be made.
+
 \subsection{The Package \toolname{siunitx}}
 
 In order to get the number formatting right, a number of packages evolved; most
