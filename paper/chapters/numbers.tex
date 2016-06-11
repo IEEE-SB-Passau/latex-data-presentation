@@ -53,6 +53,18 @@ number like this, it would imply that the measurement result was between
 In order to not confuse the reader, a clear statement of the number of
 significant digits that is used in each measurement needs to be made.
 
+As mentioned before, trailing zeros count as significant digits.  This means,
+one can not simply write \SI{20000}{\meter} when only having, for example, two
+significant digits.  Obviously, in this case, one can use the specifier
+\enquote{kilo} to solve the problem: \SI{20}{\kilo\meter}.  Another way of
+solving this issue is using scientific notation; this is well-known in physics
+or engineering but might confuse and unexperienced reader.  Nonetheless, writing
+\SI{20e3}{\meter} does only give two significant digits.
+
+No matter which way one chooses, the number of significant digits has to be
+right and consistent throughout the document—the same holds for the style of
+number formatting.
+
 \subsection{The Package \toolname{siunitx}}
 
 In order to get the number formatting right, a number of packages evolved; most
