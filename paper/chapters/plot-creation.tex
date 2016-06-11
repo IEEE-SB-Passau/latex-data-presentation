@@ -22,6 +22,31 @@ also capable of producing \LaTeX{} code that can be included directly in
 
 \subsection{pgfplots}
 
+\toolname{Pgfplots} is a package for \TeX{} and \LaTeX{} using Till Tantau's
+package \toolname{pgf/Ti\textit{k}Z}~\cite{Feuersaenger2016}.  It supports line
+plots, scatter plots, bar plots, histogram plots, box plots, and many more and
+is able to do 2D and 3D plots without needing an external tool installed
+(contrary to \toolname{PSTricks}).
+
+The input file is of the structure as a standard \TeX{} or \LaTeX{} file.
+Consider the example code in Listing~\ref{lst:pgfplots-example}, which is taken
+from the \toolname{pgfplots} manual~\cite{Feuersaenger2016}.  It uses a data set
+that comes with \toolname{pgfplots} to plot the curve that can be seen in
+Figure~\ref{fig:pgfplots-example}.
+
+\begin{listing}[H]
+  \inputminted{latex}{../examples/pgfplots-example.tex}
+  \caption{Example code for \toolname{pgfplots} (taken
+    from~\cite{Feuersaenger2016})}
+  \label{lst:pgfplots-example}
+\end{listing}
+\begin{figure}[!t]
+  \centering
+  \includegraphics{pgfplots-example}
+  \caption{Resulting diagram from the code in Lst.~\ref{lst:pgfplots-example}}
+  \label{fig:pgfplots-example}
+\end{figure}
+
 \subsection{PSTricks}
 
 \subsection{R and Sweave}
@@ -53,11 +78,12 @@ output can be seen in Figure~\ref{fig:sweave-example}.
 \begin{listing}[H]
   \inputminted{latex}{../examples/sweave-example.Snw}
   \caption{Plot the exchange rate between \euro{} and \$ dynamically using
-    Sweave}
+    \toolname{Sweave}}
   \label{lst:sweave-example}
 \end{listing}
 \begin{figure}[!t]
   \includegraphics[width=\linewidth]{sweave-example}
-  \caption{Screenshot of the Sweave example in Lst.~\ref{lst:sweave-example}}
+  \caption{Screenshot of the \toolname{Sweave} example in
+    Lst.~\ref{lst:sweave-example}}
   \label{fig:sweave-example}
 \end{figure}

@@ -1,0 +1,16 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.13}
+\begin{document}
+
+\begin{tikzpicture}
+  \begin{axis}[
+      title={Inv. com. normal},
+      xlabel={$x$},
+      ylabel={$y$},
+    ]
+    \addplot [blue] table {invcum.dat};
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}
