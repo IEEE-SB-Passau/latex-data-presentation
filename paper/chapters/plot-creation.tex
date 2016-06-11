@@ -92,6 +92,20 @@ literate programming—a concept developed by Donald E\@. Knuth~\cite{Knuth1992}
 A simple introduction was given by Uwe Ziegenhagen in his German article
 \enquote{Datenanalyse mit Sweave, \LaTeX{} und R}~\cite{Ziegenhagen2010}.
 
+\begin{listing}[H]
+  \inputminted{latex}{../examples/sweave-example.Snw}
+  \caption{Plot the exchange rate between \euro{} and \$ dynamically using
+    \toolname{Sweave}}
+  \label{lst:sweave-example}
+\end{listing}
+
+\begin{figure}[!t]
+  \includegraphics[width=\linewidth]{sweave-example}
+  \caption{Screenshot of the \toolname{Sweave} example in
+    Lst.~\ref{lst:sweave-example}}
+  \label{fig:sweave-example}
+\end{figure}
+
 In order to use \toolname{Sweave}, one needs to write a document like shown in
 Listing~\ref{lst:sweave-example}.  By convention, the filename suffix is not
 \texttt{*.tex} but \texttt{*.Snw}; this is important, because the \texttt{*.tex}
@@ -105,16 +119,3 @@ and a \texttt{*.tex} file will be created, which can then be processed by, e.g.,
 The example in Listing~\ref{lst:sweave-example} loads the exchange rates between
 \euro{} and \$ from the homepage of the European Central Bank and plots it. The
 output can be seen in Figure~\ref{fig:sweave-example}.
-
-\begin{listing}[H]
-  \inputminted{latex}{../examples/sweave-example.Snw}
-  \caption{Plot the exchange rate between \euro{} and \$ dynamically using
-    \toolname{Sweave}}
-  \label{lst:sweave-example}
-\end{listing}
-\begin{figure}[!t]
-  \includegraphics[width=\linewidth]{sweave-example}
-  \caption{Screenshot of the \toolname{Sweave} example in
-    Lst.~\ref{lst:sweave-example}}
-  \label{fig:sweave-example}
-\end{figure}
