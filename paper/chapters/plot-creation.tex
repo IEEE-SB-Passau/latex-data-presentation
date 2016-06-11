@@ -49,6 +49,37 @@ Figure~\ref{fig:pgfplots-example}.
 
 \subsection{PSTricks}
 
+\toolname{PSTricks} is the name of an extensive collection of packages to create
+PostScript that is usable from \TeX~\cite{Zandt2007}.  In order to use
+PostScript, one needs to use the tool chain \texttt{latex} $\rightarrow$
+\texttt{dvips} $\rightarrow$ \texttt{ps2pdf} in order to create PDFs; this
+limitation can be overcome by using either the \toolname{pst-pdf} or the
+\toolname{pdftricks} package, that create PDF directly.
+
+As \toolname{PSTricks} uses PostScript, it has access to the full power of this
+(Turing complete) language.  For creating plots, the \toolname{pst-plot}
+package~\cite{Voss2016a} exists.  In Listing~\ref{lst:pstricks-example} is an
+example of a simple plot with this package; the result can be seen in
+Figure~\ref{fig:pstricks-example}.  The code was taken from the
+\toolname{PSTricks} gallery\footnote{\href{http://pstricks.tug.org}%
+{http://pstricks.tug.org}}.
+
+\begin{listing}[H]
+  \inputminted{latex}{../examples/pstricks-example.tex}
+  \caption{Example code for \toolname{PSTricks}}
+  \label{lst:pstricks-example}
+\end{listing}
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\linewidth]{pstricks-example}
+  \caption{Resulting diagram from the code in Lst.~\ref{lst:pstricks-example}}
+  \label{fig:pstricks-example}
+\end{figure}
+
+A rich introduction in the functionality of \toolname{PSTricks} that goes far
+beyond plotting can be found in the German book \enquote{PSTricks -- Grafiken
+mit PostScript für \TeX{} und \LaTeX{}} by Herbert Voß~\cite{Voss2016}.
+
 \subsection{R and Sweave}
 
 \toolname{R} is a well-known language for statistical computing and

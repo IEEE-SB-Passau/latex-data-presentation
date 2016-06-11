@@ -1,0 +1,20 @@
+\documentclass[pstricks]{standalone}
+\usepackage{pstricks-add}
+\begin{document}
+
+\psset{xAxisLabel=$V_{br}(V)$,
+       yAxisLabel=$\displaystyle R_{sp\acute{e}cifique} \left(
+          \frac{\Omega}{cm^2} \right)$,
+       llx=-1.5cm,lly=-1cm,urx=1.5cm,ury=1.5cm}
+\begin{psgraph}[tickcolor=lightgray, subtickcolor=lightgray, subticksize=0.5,
+    Ox=1,Dx=1,xsubticks=9,xylogBase=10,
+    logLines=all,Oy=-4,Dy=1,
+    ysubticks=9] {->}(1,-4)(3.301,1.18){11cm}{6cm}
+  \psplot[linecolor=darkgray, linestyle=dashed, algebraic]{1.69879}{3.301}{%
+    log( 5.93e-9*(10^x)^2.5 ) }
+  \readdata{\data}{pstricks-data.dat}
+  \pstScalePoints(1,1){ log }{ log }
+  \listplot[plotstyle=dots, dotstyle=triangle*]{\data}
+\end{psgraph}
+
+\end{document}
