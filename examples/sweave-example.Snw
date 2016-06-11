@@ -1,5 +1,7 @@
 \documentclass[a5paper]{scrartcl}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tgpagella}
 \begin{document}
 
 <<echo=false,results=hide>>=
