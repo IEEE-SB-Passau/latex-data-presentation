@@ -62,6 +62,7 @@
   detect-weight=true,%
   detect-inline-weight=math,%
 ]{siunitx}
+\usepackage{tikz}
 %\SendSettingsToPgf
 \usepackage{shellesc}
 \usepackage{minted}
@@ -77,11 +78,15 @@
 \usemintedstyle{solarizedlight}
 \usepackage{paralist}
 \usepackage{microtype}
-\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
 \definecolor{halfgray}{gray}{0.55}
 \definecolor{webgreen}{rgb}{0,0.5,0}
 \definecolor{webbrown}{rgb}{.6,0,0}
+\definecolor{gruen}{rgb}{0.012,0.863,0.055}
+\definecolor{rot}{rgb}{0.929,0.165,0.082}
 \definecolor{thesisblue}{cmyk}{1.00,0.50,0.10,0.01}
+\usepackage{luacode}
+\directlua{dofile(kpse.find_file("../examples/fromcsv.lua"))}
 \usepackage{hyperref}
 \hypersetup{%
   colorlinks=true,%
