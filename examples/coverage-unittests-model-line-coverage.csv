@@ -1,0 +1,18 @@
+all classes,160,236,615,723,3346,3979
+sep.client,0,4,0,6,0,9
+sep.shared.util,3,3,5,6,20,42
+sep.server,12,19,63,87,342,629
+sep.shared.game.general,7,10,19,23,63,79
+sep.client.model,29,44,145,164,564,691
+sep.shared.game,9,13,56,65,200,237
+sep.shared.communication.client,24,36,49,61,94,106
+sep.shared.communication,2,3,5,6,11,12
+sep.shared.communication.server,23,34,62,73,141,152
+sep.shared.game.player,9,13,35,40,168,181
+sep.shared.game.halma.model,10,13,41,45,380,409
+sep.shared.game.madn4.model,6,9,27,30,389,417
+sep.shared.user,2,3,6,7,15,16
+sep.shared.game.dame.model,8,10,32,34,412,435
+sep.shared.game.action,6,9,21,24,59,62
+sep.shared.game.action.model,2,3,9,10,31,32
+sep.shared.game.madn6.model,8,10,40,42,457,470

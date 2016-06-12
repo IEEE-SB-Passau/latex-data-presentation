@@ -1,0 +1,56 @@
+\documentclass[landscape]{article}
+\usepackage[margin=0pt, paperwidth=19cm, paperheight=9cm]{geometry}
+\usepackage{xcolor}
+\definecolor{gruen}{rgb}{0.012,0.863,0.055}
+\definecolor{rot}{rgb}{0.929,0.165,0.082}
+\usepackage{luacode}
+\directlua{ dofile(kpse.find_file("fromcsv.lua")) }
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage[group-digits=integer,%
+  group-minimum-digits=4,%
+  list-final-separator={, and },%
+  add-integer-zero=false,%
+  free-standing-units,%
+  unit-optional-argument,%
+  binary-units,%
+  detect-weight=true,%
+  detect-inline-weight=math,%
+]{siunitx}
+\begin{document}
+
+\begin{luacode}
+tex.print("\\begin{tabular}{@{}l"
+  .. "S[table-format=2.2, round-mode=figures, round-precision=4]r"
+  .. "S[table-format=2.2, round-mode=figures, round-precision=4]r"
+  .. "S[table-format=2.2, round-mode=figures, round-precision=4]r"
+  .. "cr@{}}")
+tex.print("\\textbf{Package} & \\textbf{Class} & \\textbf{\\#}"
+  .. "& \\textbf{Method} & \\textbf{\\#} & \\textbf{Line}"
+  .. "& \\textbf{\\#} && \\\\\\midrule")
+
+local zeile, daten
+for zeile in io.lines("coverage-unittests-model-line-coverage.csv") do
+  daten = fromCSV(zeile)
+  local classpercent, methodpercent, linepercent, linebar
+  classpercent = string.format("%.2f", daten[2] / daten[3] * 100)
+  methodpercent = string.format("%.2f", daten[4] / daten[5] * 100)
+  linepercent = string.format("%.2f", daten[6] / daten[7] * 100)
+  linebar = tonumber(string.format("%.4f", daten[6] / daten[7]))
+
+  tex.print("" .. daten[1] .. "&"
+    .. classpercent .. "\\,\\% & (" .. daten[2] .. "/" .. daten[3] .. ")&"
+    .. methodpercent .. "\\,\\% & (" .. daten[4] .. "/" .. daten[5] .. ")&"
+    .. linepercent .. "\\,\\% & (" .. daten[6] .. "/" .. daten[7] .. ")&&"
+    .. "\\begin{tikzpicture}"
+    .. "\\draw [black,thin] (0,0) rectangle (1.0,0.15);"
+    .. "\\tikz \\fill [gruen] (0,0) rectangle (" .. linebar .. ",0.15);"
+    .. "\\tikz \\fill [rot] (" .. linebar .. ",0) rectangle (1.0,0.15);"
+    .. "\\end{tikzpicture}"
+    .. "\\\\")
+end
+
+tex.print("\\end{tabular}")
+\end{luacode}
+
+\end{document}
