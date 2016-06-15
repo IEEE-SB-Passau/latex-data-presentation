@@ -4,15 +4,15 @@ Before we dig into the possibilities of presenting data, we want to give some
 general advice about numbers.  When presenting data, almost all is about
 numbers; it makes an obvious difference, if a number is presented like
 $648312786157.546863$ or \num{648312786157.546863}.  With the former it is hard
-to determine the dimension of this number, while it is easy with the latter.
+to determine the dimension of this number, while it is easier with the latter.
 
 A general advice is to group numbers with four or more digits; whether a small
 space~(\mintinline{latex}{\,} in \LaTeX), a comma or a dot is used, depends on
 the language, country and personal taste; in Germany, the comma is the decimal
-mark, while in English it is the dot.  The German norms DIN~1333 and DIN~5008
-state that only a small space should be used for grouping; they are only allowed
-money amounts.  In English speaking countries one can use a small space or a
-comma for grouping.
+mark, while in English-speaking countries it is the dot.  The German norms
+DIN~1333 and DIN~5008 state that only a small space should be used for grouping;
+dots are only allowed money amounts.  In English speaking countries one can use
+a small space or a comma for grouping.
 
 \subsection{Units}
 
@@ -20,16 +20,18 @@ When presenting results, the numbers should be consistent in terms of units and
 their significance; most of the information in this and the following section is
 taken from Beyer, Löwe, and Wendler~\cite{BeyerLoeweWendler2016}.  The first and
 most general recommendation is to use SI units; an exception of this rule are
-time intervals, where the hours or even days are preferable over seconds.
+time intervals, while hours or even days are preferable over seconds if the
+measured time spans get larger.
 
 In Computer Science, we often measure in bytes.  The prefixes \emph{kilo} (k),
 \emph{mega} (M), \emph{giga} (G) etc.\ are SI prefixes, that means, they always
 represent a factor of \num{1000}.  Because of the binary nature of computers, we
 sometimes want to use the factor \num{1024} instead; if we do so, the prefixes
-\emph{kibi} (KiB), \emph{mibi} (MiB), \emph{gibi} (GiB), etc.\ need to be used.
-Be aware of the different basis, which will lead to an error in precision if
-used wrong: with the prefix mega it would be \SI{4.9}{\percent} and
-\SI{7.4}{\percent} with giga, respectively—a significant error.
+\emph{kibi} (KiB), \emph{mibi} (MiB), \emph{gibi} (GiB), and so forth, need to
+be used.  Be aware of the different basis, which will lead to an error in
+precision if used wrong: with the prefix \emph{mega} it would be
+\SI{4.9}{\percent} and \SI{7.4}{\percent} with \emph{giga}, respectively—a
+significant error.
 
 \subsection{Significant Digits}
 
@@ -69,7 +71,7 @@ number formatting.
 
 In order to get the number formatting right, a number of packages evolved; most
 known is the \toolname{siunitx} package by Joseph Wright~\cite{Wright2016}.  It
-was designed for formatting physical quantities and therefore as a much richer
+was designed for formatting physical quantities and therefore has a much richer
 functionality than we need.
 
 When using the command in Listing~\ref{lst:siunitx-options} to load the package,
@@ -98,22 +100,23 @@ like \mintinline{latex}{\num{}}, \mintinline{latex}{\numlist{}},
 following way:
 \begin{itemize}
   \item only the integer numbers will be grouped, that means, the part left of a
-    decimal dot
+    decimal dot.
   \item this is only done if the number has at least four digits.
   \item in a \mintinline{latex}{\numlist}, the last number will be separated
     with \enquote{, and }, e.g. \numlist{5;10;42}
     (\mintinline{latex}{\numlist{5;10;42}}).
   \item if we omit the zero before a decimal dot, it will not be added
     automatically~(e.g. \num{.0815} in contrast to
-    \num[add-integer-zero=true]{.0815})
+    \num[add-integer-zero=true]{.0815}).  In general this should not be done
+    because it makes reading numbers harder.
   \item the unit macros like \mintinline{latex}{\second} exist also outside of
-    \mintinline{latex}{\si} and \mintinline{latex}{\SI}
+    \mintinline{latex}{\si} and \mintinline{latex}{\SI}.
   \item these macros have an optional argument, so
     \mintinline{latex}{\SI{10}{\second}} and \mintinline{latex}{\second[10]}
     both produce the output \second[10].
   \item the prefixes \emph{kibi}, \emph{mibi} and so on are available, together
-    with \mintinline{latex}{\bit} and \mintinline{latex}{\byte}
-  \item \toolname{siunitx} will detect the font weight from the context
+    with \mintinline{latex}{\bit} and \mintinline{latex}{\byte}.
+  \item \toolname{siunitx} will detect the font weight from the context.
 \end{itemize}
 
 For a detailed explanation of the options and all other available options of the

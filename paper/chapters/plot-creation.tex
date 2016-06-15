@@ -31,7 +31,7 @@ is able to do 2D and 3D plots without needing an external tool installed
 The input file is of the structure as a standard \TeX{} or \LaTeX{} file.
 Consider the example code in Listing~\ref{lst:pgfplots-example}, which is taken
 from the \toolname{pgfplots} manual~\cite{Feuersaenger2016}.  It uses a data set
-that comes with \toolname{pgfplots} to plot the curve that can be seen in
+coming with \toolname{pgfplots} to plot the curve that can be seen in
 Figure~\ref{fig:pgfplots-example}.
 
 \begin{listing}[H]
@@ -54,7 +54,7 @@ PostScript that is usable from \TeX~\cite{Zandt2007}.  In order to use
 PostScript, one needs to use the tool chain \texttt{latex} $\rightarrow$
 \texttt{dvips} $\rightarrow$ \texttt{ps2pdf} in order to create PDFs; this
 limitation can be overcome by using either the \toolname{pst-pdf} or the
-\toolname{pdftricks} package, that create PDF directly.
+\toolname{pdftricks} package that create PDF directly.
 
 As \toolname{PSTricks} uses PostScript, it has access to the full power of this
 (Turing complete) language.  For creating plots, the \toolname{pst-plot}
@@ -76,7 +76,7 @@ Figure~\ref{fig:pstricks-example}.  The code was taken from the
   \label{fig:pstricks-example}
 \end{figure}
 
-A rich introduction in the functionality of \toolname{PSTricks} that goes far
+A rich introduction into the functionality of \toolname{PSTricks} that goes far
 beyond plotting can be found in the German book \enquote{PSTricks -- Grafiken
 mit PostScript für \TeX{} und \LaTeX{}} by Herbert Voß~\cite{Voss2016}.
 
@@ -113,10 +113,10 @@ Listing~\ref{lst:sweave-example}.  By convention, the filename suffix is not
 \texttt{*.tex} but \texttt{*.Snw}; this is important, because the \texttt{*.tex}
 file will be create automatically.  A syntax highlighting mode is available for
 the editor VIM\@.  After writing the file, one needs to start \toolname{R},
-e.g., a \toolname{R} interactive shell.  With the command
+for example, a \toolname{R} interactive shell.  With the command
 \mintinline{R}{Sweave("filename.Snw")} the \toolname{R} code will be processed
-and a \texttt{*.tex} file will be created, which can then be processed by, e.g.,
-\hologo{pdfLaTeX}.
+and a \texttt{*.tex} file will be created, which can then be processed by, for
+example, \hologo{pdfLaTeX}.
 
 The example in Listing~\ref{lst:sweave-example} loads the exchange rates between
 \euro{} and \$ from the homepage of the European Central Bank and plots it. The
