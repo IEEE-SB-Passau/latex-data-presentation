@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[%
+      xlabel = {Exam},
+      ylabel = {Homework},
+      scatter,
+      only marks,
+    ]
+    \addplot [mark=x] table [x=Exam, y=Homework] {scatterplot.csv};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
