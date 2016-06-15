@@ -1,0 +1,78 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{pgfplots.colorbrewer}
+\makeatletter
+\pgfplotsset{
+  % define a `cycle list' for marker
+  cycle list/.define={my marks}{%
+    every mark/.append style={solid,fill=\pgfkeysvalueof{/pgfplots/mark list fill}},mark=*\\%
+    every mark/.append style={solid,fill=\pgfkeysvalueof{/pgfplots/mark list fill}},mark=square*\\%
+    every mark/.append style={solid,fill=\pgfkeysvalueof{/pgfplots/mark list fill}},mark=triangle*\\%
+    every mark/.append style={solid,fill=\pgfkeysvalueof{/pgfplots/mark list fill}},mark=diamond*\\%
+  },
+%
+  /pgfplots/colormap/Pair-10/.style={
+    colormap={Pair-10}{
+      color=(Paired-B);
+      color=(Paired-A);
+      color=(Paired-D);
+      color=(Paired-C);
+      color=(Paired-F);
+      color=(Paired-E);
+      color=(Paired-H);
+      color=(Paired-G);
+      color=(Paired-J);
+      color=(Paired-I);
+    },
+    cycle list/.define={Pair-10}{[of colormap=Pair-10]},
+  },
+  /pgfplots/cycle list/Pair-10/.style={/pgfplots/@@brewer set cycle list={Pair-10}},
+}
+\makeatother
+\usepackage[group-digits=integer, group-minimum-digits=4,
+  list-final-separator={, and }, add-integer-zero=false,
+  free-standing-units, unit-optional-argument, binary-units,
+  detect-weight=true,detect-inline-weight=math]{siunitx}
+\SendSettingsToPgf
+\begin{document}
+
+\begin{tikzpicture}[
+    every pin/.style={align=left,fill=yellow!30!white,rounded corners=3pt,}
+  ]
+\begin{semilogyaxis}[
+    /pgfplots/table/y index=3, /pgfplots/table/header=false,
+    %no markers,
+    mark repeat=500,
+    cycle list/Pair-10,
+    mark list fill={.!75!white},
+    cycle multiindex* list={%
+      Pair-10
+        \nextlist
+      my marks
+        \nextlist
+      thick
+        \nextlist
+      },
+    ylabel=CPU time (\second),
+    xlabel=Accumulated score,
+    xmin=-700, xmax=4500, ymax=1000,
+    width=12cm,
+    height=9cm,
+    ylabel shift=-0.5em,
+    legend entries={MS-ha, MS-uf, PR-ha, PR-uf, SI-ha, SI-uf, Z3-ha, Z3-uf},
+    every axis legend/.append style={at={(0,1)}, anchor=north west, outer
+      xsep=3pt, outer ysep=3pt,},
+  ]
+  \addplot+ table {MathSAT5-heaparray.quantile-score.csv};
+  \addplot+ table {MathSAT5-uf.quantile-score.csv};
+  \addplot+ table {PRINCESS-heaparray.quantile-score.csv};
+  \addplot+ table {PRINCESS-uf.quantile-score.csv};
+  \addplot+ table {SMTInterpol-heaparray.quantile-score.csv};
+  \addplot+ table {SMTInterpol-uf.quantile-score.csv};
+  \addplot+ table {Z3-heaparray.quantile-score.csv};
+  \addplot+ table {Z3-uf.quantile-score.csv};
+\end{semilogyaxis}
+\end{tikzpicture}
+
+\end{document}
