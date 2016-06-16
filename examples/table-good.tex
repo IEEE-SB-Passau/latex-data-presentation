@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[group-digits=integer,%
+  group-minimum-digits=4,%
+  list-final-separator={, and },%
+  add-integer-zero=false,%
+  free-standing-units,%
+  unit-optional-argument,%
+  binary-units,%
+  detect-weight=true,%
+  detect-inline-weight=math,%
+]{siunitx}
+\usepackage{eurosym}
+\usepackage{booktabs}
+\begin{document}
+{\small
+\begin{tabular}{@{}>{\raggedright}%
+  p{3.5cm}@{\kern-30pt}*{5}{>{\footnotesize}r}@{}}\toprule
+  \textit{Alternative 1} & Investitions- & Jahr\\[-2pt]
+                         & zeitpunkt     & 2006 & 2007 & 2008 & 2009 \\
+  \cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(l){6-6}
+  Einführungszahlungen & 0 & 0 & 0 & 0 & 0 \\
+  Lfd. Personalzahlungen & 0 & \num{7187} & \num{7187} & \num{7187} &
+                           \num{7187} \\
+  Lfd. Zahlungen für \newline
+  Wartung/Systempflege   & 0 & \num{13572} & \num{13572} & \num{13572} &
+                           \num{13572} \\
+     \cmidrule[0.8pt](r){1-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+     \cmidrule(lr){5-5}\cmidrule(l){6-6}
+  Gesamtzahlungen für die Investition
+                         & 0 & \num{20759} & \num{20759} & \num{20759} &
+                           \num{20759} \\\bottomrule
+  %
+  \multicolumn{6}{c}{\rule{0pt}{3ex}\small(Alle Angaben in \euro)}
+\end{tabular}}
+\end{document}

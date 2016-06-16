@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[group-digits=integer,%
+  group-minimum-digits=4,%
+  list-final-separator={, and },%
+  add-integer-zero=false,%
+  free-standing-units,%
+  unit-optional-argument,%
+  binary-units,%
+  detect-weight=true,%
+  detect-inline-weight=math,%
+]{siunitx}
+\usepackage{eurosym}
+\begin{document}
+{\small
+\begin{tabular}{|@{}>{\raggedright}%
+  p{3.5cm}@{\kern-30pt}>{\footnotesize}r|*{4}{>{\footnotesize}l|}@{}}\hline\hline
+  \textit{Alternative 1} & Investitions- & Jahr &&&\\[-2pt]
+                         & zeitpunkt     & 2006 & 2007 & 2008 & 2009
+  \\\hline\hline
+  Einführungszahlungen & 0 & 0 & 0 & 0 & 0 \\\hline
+  Lfd. Personalzahlungen & 0 &  7187 &  7187 &  7187 &  7187 \\\hline
+  Lfd. Zahlungen für \newline
+  Wartung/Systempflege   & 0 & 13572 & 13572 & 13572 & 13572 \\\hline\hline
+  Gesamtzahlungen für die Investition
+                         & 0 & 20759 & 20759 & 20759 & 20759 \\\hline\hline
+  %
+  \multicolumn{6}{c}{\rule{0pt}{3ex}\small(Alle Angaben in \euro)}
+\end{tabular}
+}
+\end{document}

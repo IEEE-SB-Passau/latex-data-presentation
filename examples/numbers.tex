@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[group-digits=integer,%
+  group-minimum-digits=4,%
+  list-final-separator={, and },%
+  add-integer-zero=false,%
+  free-standing-units,%
+  unit-optional-argument,%
+  binary-units,%
+  detect-weight=true,%
+  detect-inline-weight=math,%
+]{siunitx}
+\usepackage{booktabs}
+\begin{document}
+\begin{tabular}{@{}
+  S[table-format=7.4,   round-mode=places, round-precision=4,scientific-notation=fixed]
+  S[table-format=6.7,   round-mode=figures,round-precision=4,scientific-notation=fixed,table-alignment=right,table-parse-only=true]
+  S[table-format=1.3e-1,round-mode=figures,round-precision=4,retain-zero-exponent]
+  S[table-format=6.7,   round-mode=figures,round-precision=4]
+  @{}}
+\multicolumn{1}{p{0.19\linewidth}}{\centering fixed decimal places} &
+\multicolumn{1}{p{0.19\linewidth}}{\centering right-aligned} &
+\multicolumn{1}{p{0.19\linewidth}}{\centering scientific notation} &
+\multicolumn{1}{p{0.19\linewidth}}{\centering decimal-aligned} \\ \midrule
+1.2349876e5  & 1.2349876e5  & 1.2349876e5  & 123498.76 \\
+1.2349876e4  & 1.2349876e4  & 1.2349876e4  & 12349.876 \\
+1.2349876e3  & 1.2349876e3  & 1.2349876e3  & 1234.9876 \\
+1.2349876e2  & 1.2349876e2  & 1.2349876e2  & 123.49876 \\
+1.2349876e1  & 1.2349876e1  & 1.2349876e1  & 12.349876 \\
+1.2349876e0  & 1.2349876e0  & 1.2349876e0  & 1.2349876 \\
+1.2349876e-1 & 1.2349876e-1 & 1.2349876e-1 & .12349876 \\
+1.2349876e-2 & 1.2349876e-2 & 1.2349876e-2 & .012349876 \\
+1.2349876e-3 & 1.2349876e-3 & 1.2349876e-3 & .0012349876 \\
+1.2349876e-4 & 1.2349876e-4 & 1.2349876e-4 & .00012349876 \\
+9.876123e-4  & 9.876123e-4  & 9.876123e-4  & .0009876123 \\
+9.876123e-3  & 9.876123e-3  & 9.876123e-3  & .009876123 \\
+9.876123e-2  & 9.876123e-2  & 9.876123e-2  & .09876123 \\
+9.876123e-1  & 9.876123e-1  & 9.876123e-1  & .9876123 \\
+9.876123e0   & 9.876123e0   & 9.876123e0   & 9.876123 \\
+9.876123e1   & 9.876123e1   & 9.876123e1   & 98.76123 \\
+9.876123e2   & 9.876123e2   & 9.876123e2   & 987.6123
+\end{tabular}
+\end{document}
